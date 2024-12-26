@@ -1,0 +1,28 @@
+spring:
+  profiles:
+    active: local
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/dealfinder_db
+    username: dealfinder_admin
+    password: popdeK2la
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      idle-timeout: 600000
+      validation-timeout: 300000
+      connection-timeout: 30000
+      max-lifetime: 1800000
+springdoc:
+  swagger-ui:
+    path: /swagger
+  api-docs:
+    path: /api-docs
+
+directory:
+  qr: dealfinder-processor/src/main/images/qr

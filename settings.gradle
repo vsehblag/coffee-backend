@@ -1,0 +1,5 @@
+rootProject.name = 'dealfinder-backend'
+
+include 'dealfinder-common'
+include 'dealfinder-processor'
+include 'dealfinder-tg-bot'

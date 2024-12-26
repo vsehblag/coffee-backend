@@ -1,0 +1,53 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.2.3'
+    id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'com.dealfinder'
+version = '0.0.1-SNAPSHOT'
+
+// заставили добавить суки пидорасы. не знаю зачем надо
+task prepareKotlinBuildScriptModel {
+
+}
+
+java {
+    sourceCompatibility = '17'
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        url "https://repository.aspose.com/repo/"
+    }
+}
+
+dependencies {
+    implementation project(':dealfinder-common')
+    implementation 'org.springframework.boot:spring-boot-starter-security:3.0.4'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.16.1'
+    implementation 'com.vladmihalcea:hibernate-types-60:2.21.1'
+    implementation 'org.mapstruct:mapstruct:1.4.2.Final'
+    implementation 'com.aspose:aspose-barcode:20.3'
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0'
+    compileOnly 'org.projectlombok:lombok'
+    runtimeOnly 'org.postgresql:postgresql'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.2.Final'
+    annotationProcessor 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
